@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 const ProductPage = () => {
-  const id = useRouter().query.id
-  const [product, setProduct] = useState({});
+  const { id } = useRouter().query
+  const [product, setProduct] = useState<TProduct>();
 
   useEffect(() => {
     window.fetch(`/api/avo/${id}`)
     .then(response => response.json())
-    .then(response => {
-      setProduct(response)
+    .then(data => {
+      setProduct(data)
     })
   }, [])
 
   return (
     <section>
-      <h1>Página producto: {product.name}</h1>
+      <h1>Página producto: {product?.name}</h1>
     </section>
   )
 }
