@@ -6,12 +6,12 @@ const ProductPage = () => {
   const [product, setProduct] = useState<TProduct>();
 
   useEffect(() => {
-    window.fetch(`/api/avo/${id}`)
+    id && window.fetch(`/api/avo/${id}`)
     .then(response => response.json())
     .then(data => {
       setProduct(data)
     })
-  }, [])
+  }, [id])
 
   return (
     <section>
