@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-
 const HomePage = () => {
 
   const [productList, setProductList] = useState<TProduct[]>([]);
